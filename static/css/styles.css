@@ -1,0 +1,297 @@
+/* ===================================
+   SIMULADOR DE CIRCUITOS - ESTILOS
+   ================================== */
+
+/* Variables CSS para modo claro y oscuro */
+:root {
+    /* Modo claro (por defecto) */
+    --bg-primary: #f8f9fa;
+    --bg-secondary: #ffffff;
+    --text-primary: #212529;
+    --text-secondary: #6c757d;
+    --border-color: #dee2e6;
+    --shadow-color: rgba(0,0,0,0.1);
+    --card-bg: #ffffff;
+}
+
+[data-theme="dark"] {
+    /* Modo oscuro */
+    --bg-primary: #1a1a1a;
+    --bg-secondary: #2d2d30;
+    --text-primary: #ffffff;
+    --text-secondary: #cccccc;
+    --border-color: #404040;
+    --shadow-color: rgba(0,0,0,0.3);
+    --card-bg: #2d2d30;
+}
+
+/* Forzar colores en modo oscuro para elementos específicos */
+[data-theme="dark"] input[type="text"],
+[data-theme="dark"] input[type="number"],
+[data-theme="dark"] input[type="email"],
+[data-theme="dark"] select,
+[data-theme="dark"] textarea {
+    background-color: var(--bg-secondary) !important;
+    color: var(--text-primary) !important;
+    border-color: var(--border-color) !important;
+}
+
+[data-theme="dark"] input::placeholder {
+    color: var(--text-secondary) !important;
+}
+
+/* Forzar texto en contenedores */
+[data-theme="dark"] .card-header {
+    background-color: var(--bg-secondary) !important;
+    color: var(--text-primary) !important;
+    border-color: var(--border-color) !important;
+}
+
+[data-theme="dark"] h1, 
+[data-theme="dark"] h2, 
+[data-theme="dark"] h3, 
+[data-theme="dark"] h4, 
+[data-theme="dark"] h5, 
+[data-theme="dark"] h6 {
+    color: var(--text-primary) !important;
+}
+
+[data-theme="dark"] p,
+[data-theme="dark"] span,
+[data-theme="dark"] div {
+    color: var(--text-primary) !important;
+}
+
+[data-theme="dark"] small {
+    color: var(--text-secondary) !important;
+}
+
+/* ===================================
+   TRANSICIONES Y ANIMACIONES
+   ================================== */
+
+/* Transiciones suaves */
+.theme-transition {
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease !important;
+}
+.theme-transition * {
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease !important;
+}
+
+/* ===================================
+   ESTILOS GENERALES
+   ================================== */
+
+/* Estilos aplicados */
+body {
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+}
+
+.container {
+    margin-top: 30px;
+    margin-bottom: 30px;
+    background-color: var(--card-bg);
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px var(--shadow-color);
+}
+
+.card {
+    background-color: var(--card-bg) !important;
+    border-color: var(--border-color) !important;
+}
+
+.card-body {
+    background-color: var(--card-bg) !important;
+    color: var(--text-primary) !important;
+}
+
+/* ===================================
+   FORMULARIOS
+   ================================== */
+
+/* Campos de formulario */
+.form-control {
+    background-color: var(--bg-secondary) !important;
+    border-color: var(--border-color) !important;
+    color: var(--text-primary) !important;
+}
+
+.form-control:focus {
+    background-color: var(--bg-secondary) !important;
+    color: var(--text-primary) !important;
+    border-color: var(--border-color) !important;
+    box-shadow: 0 0 0 0.2rem rgba(108, 117, 125, 0.25) !important;
+}
+
+.form-control::placeholder {
+    color: var(--text-secondary) !important;
+    opacity: 0.7 !important;
+}
+
+/* Elementos input-group */
+.input-group-text {
+    font-size: 1.1em;
+    background-color: var(--bg-secondary) !important;
+    border-color: var(--border-color) !important;
+    color: var(--text-primary) !important;
+}
+
+/* Texto de ayuda */
+.form-text {
+    color: var(--text-secondary) !important;
+}
+
+/* Labels y etiquetas */
+.form-label {
+    color: var(--text-primary) !important;
+}
+
+/* ===================================
+   BOTONES
+   ================================== */
+
+/* Botones radio personalizados */
+.btn-check:checked + .btn-outline-primary {
+    background-color: #0d6efd !important;
+    border-color: #0d6efd !important;
+    color: #ffffff !important;
+}
+
+.btn-outline-primary {
+    color: #0d6efd !important;
+    border-color: #0d6efd !important;
+}
+
+[data-theme="dark"] .btn-outline-primary {
+    color: #4dabf7 !important;
+    border-color: #4dabf7 !important;
+}
+
+.btn-outline-primary:hover {
+    background-color: #0d6efd !important;
+    border-color: #0d6efd !important;
+    color: #ffffff !important;
+}
+
+[data-theme="dark"] .btn-outline-primary:hover {
+    background-color: #4dabf7 !important;
+    border-color: #4dabf7 !important;
+    color: #1a1a1a !important;
+}
+
+/* Botones normales */
+.btn-success {
+    background-color: #198754 !important;
+    border-color: #198754 !important;
+}
+
+.btn-primary {
+    background-color: #0d6efd !important;
+    border-color: #0d6efd !important;
+}
+
+.btn-secondary {
+    background-color: #6c757d !important;
+    border-color: #6c757d !important;
+}
+
+/* ===================================
+   ALERTAS Y NOTIFICACIONES
+   ================================== */
+
+/* Alertas */
+.alert-danger {
+    background-color: rgba(220, 53, 69, 0.1) !important;
+    border-color: rgba(220, 53, 69, 0.2) !important;
+    color: #dc3545 !important;
+}
+
+/* ===================================
+   TABLAS
+   ================================== */
+
+/* Tablas */
+.table {
+    color: var(--text-primary) !important;
+}
+
+.table-bordered {
+    border-color: var(--border-color) !important;
+}
+
+.table-bordered th,
+.table-bordered td {
+    border-color: var(--border-color) !important;
+}
+
+.bg-light {
+    background-color: var(--bg-secondary) !important;
+}
+
+.table-dark {
+    background-color: var(--bg-secondary) !important;
+    color: var(--text-primary) !important;
+}
+
+.table-striped tbody tr:nth-of-type(odd) {
+    background-color: rgba(108, 117, 125, 0.05) !important;
+}
+
+.table-hover tbody tr:hover {
+    background-color: rgba(108, 117, 125, 0.1) !important;
+}
+
+/* ===================================
+   BOTÓN DE CAMBIO DE TEMA
+   ================================== */
+
+/* Botón de tema flotante */
+.theme-toggle-btn {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 2px solid var(--border-color);
+    background-color: var(--card-bg);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    transition: all 0.3s ease;
+    z-index: 1000;
+    box-shadow: 0 2px 10px var(--shadow-color);
+}
+
+.theme-toggle-btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 4px 15px var(--shadow-color);
+}
+
+.theme-icon {
+    position: absolute;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.theme-toggle-btn .sun-icon {
+    opacity: 1;
+}
+
+.theme-toggle-btn .moon-icon {
+    opacity: 0;
+    transform: rotate(180deg);
+}
+
+.theme-toggle-btn.dark-mode .sun-icon {
+    opacity: 0;
+    transform: rotate(-180deg);
+}
+
+.theme-toggle-btn.dark-mode .moon-icon {
+    opacity: 1;
+    transform: rotate(0deg);
+}
