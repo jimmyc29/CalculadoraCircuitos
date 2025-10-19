@@ -22,6 +22,8 @@ class ThemeController {
         
         this.setTheme(initialTheme, false); // false = sin animación inicial
         this.createToggleButton();
+        this.createClearButton();
+        this.createScrollTopButton();
         this.bindEvents();
     }
 
@@ -40,10 +42,68 @@ class ThemeController {
         document.body.appendChild(button);
     }
 
+    createClearButton() {
+        // Botón flotante secundario para "Limpiar"
+        const clearBtn = document.createElement('button');
+        clearBtn.id = 'clean-toggle';
+        clearBtn.className = 'clean-toggle-btn';
+        clearBtn.setAttribute('aria-label', 'Limpiar formulario y resultados');
+        clearBtn.setAttribute('title', 'Limpiar');
+        clearBtn.innerHTML = `<span class="theme-icon">🧹</span>`;
+        document.body.appendChild(clearBtn);
+    }
+
+    createScrollTopButton() {
+        // Botón flotante para volver al inicio de la página
+        const topBtn = document.createElement('button');
+        topBtn.id = 'scroll-top-toggle';
+        topBtn.className = 'scroll-top-btn';
+        topBtn.setAttribute('aria-label', 'Ir arriba');
+        topBtn.setAttribute('title', 'Ir arriba');
+        topBtn.innerHTML = `<span class="theme-icon">⬆️</span>`;
+        topBtn.style.display = 'none'; // oculto inicialmente
+        document.body.appendChild(topBtn);
+    }
+
     bindEvents() {
         const button = document.getElementById('theme-toggle');
         if (button) {
             button.addEventListener('click', () => this.toggleTheme());
+        }
+
+        const clearBtn = document.getElementById('clean-toggle');
+        if (clearBtn) {
+            clearBtn.addEventListener('click', () => {
+                const limpiar = document.getElementById('btnLimpiar');
+                if (limpiar && typeof limpiar.click === 'function') {
+                    limpiar.click();
+                } else {
+                    // Fallback: emitir evento para que otros componentes lo manejen
+                    window.dispatchEvent(new CustomEvent('request-clear'));
+                }
+            });
+        }
+
+        const topBtn = document.getElementById('scroll-top-toggle');
+        if (topBtn) {
+            // Mostrar/ocultar según desplazamiento
+            const toggleTopBtnVisibility = () => {
+                const shouldShow = window.scrollY > 200; // umbral
+                topBtn.style.display = shouldShow ? 'flex' : 'none';
+            };
+            window.addEventListener('scroll', toggleTopBtnVisibility, { passive: true });
+            // Ejecutar una vez al iniciar
+            toggleTopBtnVisibility();
+
+            // Desplazamiento suave hacia arriba
+            topBtn.addEventListener('click', () => {
+                const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+                if (prefersReduced) {
+                    window.scrollTo(0, 0);
+                } else {
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                }
+            });
         }
 
         // Escuchar cambios en preferencia del sistema

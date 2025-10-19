@@ -35,5 +35,3 @@ Pequeña app web para dibujar, simular y visualizar circuitos eléctricos básic
 
 ## Licencia
 - Por definir.
-
-## Jimmy Coc 
