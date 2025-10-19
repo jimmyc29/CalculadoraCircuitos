@@ -187,17 +187,17 @@
                 <tr>
                   <td>Resistencia Total (R<sub>T</sub>)</td>
                   <td>${tipo === 'serie' ? '&Sigma; R<sub>n</sub>' : '1 / (&Sigma; 1/R<sub>n</sub>)'}</td>
-                  <td class="fw-bold text-success">${formatResistanceOhmsOnly(body.resultados.RT)}</td>
+                  <td class="fw-bold text-success text-nowrap">${formatResistanceOhmsOnly(body.resultados.RT)}</td>
                 </tr>
                 <tr>
                   <td>Corriente Total (I<sub>T</sub>)</td>
                   <td>V<sub>f</sub> / R<sub>T</sub></td>
-                  <td class="fw-bold text-success">${formatCurrentTotal(body.resultados.IT)}</td>
+                  <td class="fw-bold text-success text-nowrap">${formatCurrentTotal(body.resultados.IT)}</td>
                 </tr>
                 <tr>
                   <td>Potencia Total (P<sub>T</sub>)</td>
                   <td>&Sigma; P<sub>i</sub> = V<sub>f</sub> × I<sub>T</sub></td>
-                  <td class="fw-bold text-danger">${ptFormatted}</td>
+                  <td class="fw-bold text-danger text-nowrap">${ptFormatted}</td>
                 </tr>
               </tbody>
             </table>
@@ -224,10 +224,10 @@
         body.resultados.resistores.forEach((r, index) => {
           html += `<tr>
               <td>R<sub>${index + 1}</sub></td>
-              <td>${formatResistanceDetail(r.R)}</td> 
-              <td>${formatVoltageDetail(r.V)}</td>
-              <td>${formatCurrentDetail(r.I)}</td>
-              <td class="text-danger">${formatPowerDetail(r.P)}</td>
+              <td class="text-nowrap">${formatResistanceDetail(r.R)}</td> 
+              <td class="text-nowrap">${formatVoltageDetail(r.V)}</td>
+              <td class="text-nowrap">${formatCurrentDetail(r.I)}</td>
+              <td class="text-danger text-nowrap">${formatPowerDetail(r.P)}</td>
             </tr>`;
         });
 

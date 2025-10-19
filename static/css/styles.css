@@ -243,6 +243,27 @@ body {
     background-color: rgba(108, 117, 125, 0.1) !important;
 }
 
+/* Ajustes responsivos para móviles */
+@media (max-width: 576px) {
+    /* Reducir tipografía y espaciado en tablas pequeñas */
+    .table, .table th, .table td {
+        font-size: 0.9rem; /* ligeramente más pequeño para caber mejor */
+    }
+    .table td, .table th {
+        padding: 0.35rem 0.45rem; /* compacto sin perder legibilidad */
+        vertical-align: middle;
+    }
+    /* Evitar cortes de números/valores en varias líneas */
+    .table td.text-nowrap, .table th.text-nowrap {
+        white-space: nowrap;
+    }
+    /* Asegurar scroll horizontal suave cuando sea necesario */
+    .table-responsive {
+        -webkit-overflow-scrolling: touch;
+        overflow-x: auto;
+    }
+}
+
 /* ===================================
    BOTÓN DE CAMBIO DE TEMA
    ================================== */
